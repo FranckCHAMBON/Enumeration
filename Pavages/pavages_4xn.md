@@ -11,14 +11,14 @@ Auteur : Franck CHAMBON
 ```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html" id="pa"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['White'])
-grid[:, 0] = colors['DarkBlue']
-grid[:, 5] = (0, 0, 255)
-grid[0, 1:5] = (100, 200, 100)
+grid[:, 0] = colors['Blue']
+grid[:, 5] = colors['Blue']
+grid[0, 1:5] = colors['LightGreen']
 grid[3, 1:5] = colors['Green']
-grid[1:3, 1:3] = (255, 0, 0)
-grid[1:3, 3:5] = (175, 100, 100)
-grid[0:2, 6:8] = (255, 0, 0)
-grid[2:4, 6:8] = (255, 100, 100)
+grid[1:3, 1:3] = colors['Red']
+grid[1:3, 3:5] = colors['DarkRed']
+grid[0:2, 6:8] = colors['Red']
+grid[2:4, 6:8] = colors['DarkRed']
 print(grid._repr_html_())
 ```
 
@@ -148,7 +148,7 @@ Graphiquement, cela donne :
 ```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
-grid[:, 7] = (0, 0, 255)
+grid[:, 7] = colors['Blue']
 print(grid._repr_html_())
 ```
 
@@ -159,10 +159,10 @@ print(grid._repr_html_())
 ```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
-grid[0, 4:8] = (0, 255, 0)
-grid[1, 4:8] = (25, 205, 25)
-grid[2, 4:8] = (0, 255, 0)
-grid[3, 4:8] = (25, 205, 25)
+grid[0, 4:8] = colors['Green']
+grid[1, 4:8] = colors['LightGreen']
+grid[2, 4:8] = colors['Green']
+grid[3, 4:8] = colors['LightGreen']
 print(grid._repr_html_())
 ```
 
@@ -173,8 +173,8 @@ print(grid._repr_html_())
 ```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
-grid[0:2, 6:8] = (255, 0, 0)
-grid[2:4, 6:8] = (175, 100, 100)
+grid[0:2, 6:8] = colors['DarkRed']
+grid[2:4, 6:8] = colors['Red']
 print(grid._repr_html_())
 ```
 
@@ -185,9 +185,9 @@ print(grid._repr_html_())
 ```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
-grid[0:2, 6:8] = (255, 0, 0)
-grid[2, 4:8] = (0, 255, 0)
-grid[3, 4:8] = (25, 205, 25)
+grid[0:2, 6:8] = colors['Red']
+grid[2, 4:8] = colors['Green']
+grid[3, 4:8] = colors['LightGreen']
 print(grid._repr_html_())
 ```
 
@@ -198,9 +198,9 @@ print(grid._repr_html_())
 ```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
-grid[0, 4:8] = (0, 255, 0)
-grid[1:3, 6:8] = (255, 0, 0)
-grid[3, 4:8] = (25, 205, 25)
+grid[0, 4:8] = colors['Green']
+grid[1:3, 6:8] = colors['Red']
+grid[3, 4:8] = colors['LightGreen']
 print(grid._repr_html_())
 ```
 
@@ -211,9 +211,9 @@ print(grid._repr_html_())
 ```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
-grid[0, 4:8] = (0, 255, 0)
-grid[1, 4:8] = (25, 205, 25)
-grid[2:4, 6:8] = (255, 0, 0)
+grid[0, 4:8] = colors['Green']
+grid[1, 4:8] = colors['LightGreen']
+grid[2:4, 6:8] = colors['Red']
 print(grid._repr_html_())
 ```
 
@@ -236,8 +236,8 @@ Il y a plusieurs cas de motifs pour la partie droite d'un pavage de rectangle $4
 ```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['Black'])
-grid[0:2, 8:10] = (255, 255, 255)
-grid[2:4, 8:10] = (255, 0, 0)
+grid[0:2, 8:10] = colors['White']
+grid[2:4, 8:10] = colors['Red']
 print(grid._repr_html_())
 ```
 
@@ -249,9 +249,9 @@ print(grid._repr_html_())
 ```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['Black'])
-grid[0:2, 8:10] = (255, 255, 255)
-grid[2, 6:10] = (0, 255, 0)
-grid[3, 6:10] = (25, 205, 25)
+grid[0:2, 8:10] = colors['White']
+grid[2, 6:10] = colors['Green']
+grid[3, 6:10] = colors['LightGreen']
 print(grid._repr_html_())
 ```
 
@@ -274,9 +274,9 @@ Il y a plusieurs cas de motifs pour la partie droite d'un pavage de rectangle $4
 ```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['Black'])
-grid[0, 8:10] = (255, 255, 255)
-grid[3, 8:10] = (255, 255, 255)
-grid[1:3, 8:10] = (255, 0, 0)
+grid[0, 8:10] = colors['White']
+grid[3, 8:10] = colors['White']
+grid[1:3, 8:10] = colors['Red']
 print(grid._repr_html_())
 ```
 
@@ -287,12 +287,12 @@ print(grid._repr_html_())
 ```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['Black'])
-grid[0, 8:10] = (255, 255, 255)
-grid[3, 8:10] = (255, 255, 255)
-grid[1, 6:10] = (0, 255, 0)
-grid[2, 6:10] = (25, 205, 25)
-grid[3, 4:8] = (0, 255, 0)
-grid[0, 4:8] = (25, 205, 25)
+grid[0, 8:10] = colors['White']
+grid[3, 8:10] = colors['White']
+grid[1, 6:10] = colors['Green']
+grid[2, 6:10] = colors['LightGreen']
+grid[3, 4:8] = colors['Green']
+grid[0, 4:8] = colors['LightGreen']
 print(grid._repr_html_())
 ```
 
@@ -595,9 +595,9 @@ Des problèmes variés, de pavage ou non :
 |[Just Add It](https://www.spoj.com/problems/ZSUM/)|3985|0.01s|
 |[Recursive Sequence](https://www.spoj.com/problems/SEQ/)|2110|1.12s|
 |**[Flibonakki](https://www.spoj.com/problems/FLIB/)**|785|0.08s|
-|[Recursive Sequence (Version II)](https://www.spoj.com/problems/SPP/)|710|0.04s|
+|**[Recursive Sequence (Version II)](https://www.spoj.com/problems/SPP/)**|710|0.04s|
 |[Arya Rage](https://www.spoj.com/problems/MNNITAR/)|310|0.02s|
-|[Nacci Fear](https://www.spoj.com/problems/NACCI/)|283|0.28s|
+|**[Nacci Fear](https://www.spoj.com/problems/NACCI/)**|283|0.28s|
 |[Fun with numbers](https://www.spoj.com/problems/NUMPLAY/)|263 | 0.01s|
 |[Sum of products](https://www.spoj.com/problems/SUMMUL/)|255|0.02s|
 |**[Sum of Tetranacci numbers](https://www.spoj.com/problems/TETRAHRD/)**|217|0.07s|

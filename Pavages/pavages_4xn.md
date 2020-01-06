@@ -607,6 +607,7 @@ Des problèmes variés, de pavage ou non :
 |[Easy Sequence!](https://www.spoj.com/problems/SEQAGAIN/)|136|0.32s|
 |[Blocks for kids](https://www.spoj.com/problems/PBOARD/)|75|0.07s|
 |[Snaky Numbers](https://www.spoj.com/problems/SNAKYNUM/)|73|0.08s|
+|**[Fibonacci extraction Sum](http://www.spoj.com/problems/FIBOSUMT/)**|26|0.30s|
 |**[Grid Tiling](https://www.spoj.com/problems/BTCODE_J/)**|18|0.11s|
 |[Moon Safari (Hard)](https://www.spoj.com/problems/MOON2/)|15|23.32s|
 |[100pct failure in 72 hours](https://www.spoj.com/problems/HAL9000/)|4|0.32s|

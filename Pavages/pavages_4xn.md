@@ -577,7 +577,7 @@ print(f"Preuve de calcul : {a_n % m}")
 >   * Le calcul modulaire peut faire office de preuve de calcul dans la recherche de nouveaux algorithmes ou les exercices d'algorithmiques.
 
 ## Quelques problèmes similaires
-Voici une liste d'exercices, parfois difficiles à résoudre avec Python3, autour des suites récurrentes linéaires.
+Voici une liste d'exercices, souvent difficiles à résoudre avec Python3, autour des suites récurrentes linéaires.
 
 Plusieurs problèmes de pavages en suivant ce lien : [M5TILE](https://www.spoj.com/problems/M5TILE/).
 * Il y en a des plus faciles, comme [M3TILE](https://www.spoj.com/problems/M3TILE/) et [M4TILE](https://www.spoj.com/problems/GNY07H/).
@@ -588,40 +588,40 @@ Des problèmes variés, de pavage ou non :
 > * L'énoncé est en anglais.
 > * *Solvers* indique une forme de difficulté ; le nombre de participants qui ont résolu le problème. Attention, beaucoup de participants utilisent le langage C.
 > * Le temps indique un temps personnel en Python3 avec un code optimisé. C'est souvent le temps à battre.
-> * Un titre en gras indique un problème particulièrement difficile en Python3 ; une première résolution en C étant conseillée.
+> * Un titre en gras indique un problème particulièrement difficile en Python3 ; une première résolution en C étant conseillée. Py3Solvers indique le nombre de personnes ayant réussi avec Python3.
+> * Un symbole :fa-home: indique un problème créé par votre serviteur.
 
-|Title|Solvers|Time|
-|:----|:-----:|---:|
-|[Fibonacci Sum](https://www.spoj.com/problems/FIBOSUM/)|5227|0.02s|
-|[Just Add It](https://www.spoj.com/problems/ZSUM/)|3985|0.01s|
-|[Recursive Sequence](https://www.spoj.com/problems/SEQ/)|2110|1.12s|
-|**[Flibonakki](https://www.spoj.com/problems/FLIB/)**|785|0.08s|
-|**[Recursive Sequence (Version II)](https://www.spoj.com/problems/SPP/)**|710|0.04s|
-|[Arya Rage](https://www.spoj.com/problems/MNNITAR/)|310|0.02s|
-|**[Nacci Fear](https://www.spoj.com/problems/NACCI/)**|283|0.28s|
-|[Fun with numbers](https://www.spoj.com/problems/NUMPLAY/)|263 | 0.01s|
-|[Sum of products](https://www.spoj.com/problems/SUMMUL/)|255|0.02s|
-|**[Sum of Tetranacci numbers](https://www.spoj.com/problems/TETRAHRD/)**|217|0.07s|
-|[Fibonacci With a Square Root](https://www.spoj.com/problems/FIBOSQRT/)|139|2.73s|
-|[R Numbers](https://www.spoj.com/problems/ITRIX12E/)|181|0.02s|
-|[Easy Sequence!](https://www.spoj.com/problems/SEQAGAIN/)|136|0.32s|
-|[Blocks for kids](https://www.spoj.com/problems/PBOARD/)|75|0.07s|
-|[Snaky Numbers](https://www.spoj.com/problems/SNAKYNUM/)|73|0.08s|
-|**[Fibonacci extraction Sum](http://www.spoj.com/problems/FIBOSUMT/)**|26|0.30s|
-|**[Grid Tiling](https://www.spoj.com/problems/BTCODE_J/)**|18|0.11s|
-|[Moon Safari (Hard)](https://www.spoj.com/problems/MOON2/)|15|23.32s|
-|[100pct failure in 72 hours](https://www.spoj.com/problems/HAL9000/)|4|0.32s|
+|Title|Solvers|Time|Py3Solvers|
+|:----|:-----:|---:|:-------:|
+|[Fibonacci Sum](https://www.spoj.com/problems/FIBOSUM/)|5227|0.02s|[43](https://www.spoj.com/ranks/FIBOSUM/lang=PYTH%203.2.3)
+|[Just Add It](https://www.spoj.com/problems/ZSUM/)|3985|0.01s|[19](https://www.spoj.com/ranks/ZSUM/lang=PYTH%203.2.3)
+|**[Recursive Sequence](https://www.spoj.com/problems/SEQ/)**|2110|1.12s|[4](https://www.spoj.com/ranks/SEQ/lang=PYTH%203.2.3)
+|**[Flibonakki](https://www.spoj.com/problems/FLIB/)**|785|0.08s|[2](https://www.spoj.com/ranks/FLIB/lang=PYTH%203.2.3)
+|**[Recursive Sequence (Version II)](https://www.spoj.com/problems/SPP/)**|710|0.04s|[2](https://www.spoj.com/ranks/SPP/lang=PYTH%203.2.3)
+|[Arya Rage](https://www.spoj.com/problems/MNNITAR/)|310|0.02s|[2](https://www.spoj.com/ranks/MNNITAR/lang=PYTH%203.2.3)
+|**[Nacci Fear](https://www.spoj.com/problems/NACCI/)**|283|0.28s|[2](https://www.spoj.com/ranks/NACCI/lang=PYTH%203.2.3)
+|[Fun with numbers](https://www.spoj.com/problems/NUMPLAY/)|263 | 0.01s|[27](https://www.spoj.com/ranks/NUMPLAY/lang=PYTH%203.2.3)
+|[Sum of products](https://www.spoj.com/problems/SUMMUL/)|255|0.02s|[6](https://www.spoj.com/ranks/SUMMUL/lang=PYTH%203.2.3)
+|**[Sum of Tetranacci numbers](https://www.spoj.com/problems/TETRAHRD/)**|217|0.07s|[1](https://www.spoj.com/ranks/TETRAHRD/lang=PYTH%203.2.3)
+|**[Fibonacci With a Square Root](https://www.spoj.com/problems/FIBOSQRT/)**|139|2.73s|[2](https://www.spoj.com/ranks/FIBOSQRT/lang=PYTH%203.2.3)
+|**[R Numbers](https://www.spoj.com/problems/ITRIX12E/)**|181|0.02s|[3](https://www.spoj.com/ranks/ITRIX12E/lang=PYTH%203.2.3)
+|**[Easy Sequence!](https://www.spoj.com/problems/SEQAGAIN/)**|136|0.32s|[2](https://www.spoj.com/ranks/SEQAGAIN/lang=PYTH%203.2.3)
+|**[Blocks for kids](https://www.spoj.com/problems/PBOARD/)**|75|0.07s|[1](https://www.spoj.com/ranks/PBOARD/lang=PYTH%203.2.3)
+|**[Snaky Numbers](https://www.spoj.com/problems/SNAKYNUM/)**|73|0.08s|[1](https://www.spoj.com/ranks/SNAKYNUM/lang=PYTH%203.2.3)
+|**[Grid Tiling](https://www.spoj.com/problems/BTCODE_J/)**|18|0.11s|[1](https://www.spoj.com/ranks/BTCODE_J/lang=PYTH%203.2.3)
+|:fa-home: [Moon Safari (Hard)](https://www.spoj.com/problems/MOON2/)|15|23.32s|[0](https://www.spoj.com/ranks/MOON2/lang=PYTH%203.2.3)
+|:fa-home: [100pct failure in 72 hours](https://www.spoj.com/problems/HAL9000/)|4|0.32s|[1](https://www.spoj.com/ranks/HAL9000/lang=PYTH%203.2.3)
 
 Des challenges (amélioration de la constante) sur ce genre de problèmes :
-* [The SPP constant challenge](https://www.spoj.com/problems/SPPC/)
-* [Matrix Exponentiation](https://www.spoj.com/problems/MATEX/)
+* :fa-home: [The SPP constant challenge](https://www.spoj.com/problems/SPPC/)
+* :fa-home: [Matrix Exponentiation](https://www.spoj.com/problems/MATEX/)
 
 Des problèmes difficiles sur les suites, en général.
-|Title|Solvers|Time|
-|:----|:-----:|---:|
-|[A Summatory (HARD)](https://www.spoj.com/problems/ASUMHARD/)|52|0.77s|
-|[Pibonacci](https://www.spoj.com/problems/PIB/)|41|0.54s|
-|[Hofstadter–Conway 10000 dollar sequence](https://www.spoj.com/problems/HC10000/)|5|0.48s|
+|Title|Solvers|Time|Py3Solvers|
+|:----|:-----:|---:|:--------:|
+|[A Summatory (HARD)](https://www.spoj.com/problems/ASUMHARD/)|52|0.77s|[1](https://www.spoj.com/ranks/ASUMHARD/lang=PYTH%203.2.3)
+|[Pibonacci](https://www.spoj.com/problems/PIB/)|41|0.54s|[5](https://www.spoj.com/ranks/PIB/lang=PYTH%203.2.3)
+|[Hofstadter–Conway 10000 dollar sequence](https://www.spoj.com/problems/HC10000/)|5|0.48s|[1](https://www.spoj.com/ranks/HC10000/lang=PYTH%203.2.3)
 
 D'autres [problèmes](https://www.spoj.com/problems/FRANCKY/) essentiellement d'arithmétique.
 

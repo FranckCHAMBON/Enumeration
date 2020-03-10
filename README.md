@@ -20,3 +20,5 @@ Présentation pour la semaine du numérique, le 11 mars 2020, par Franck CHAMBON
 ## [Des carnets Jupyter](https://mybinder.org/v2/gh/FranckCHAMBON/Enumeration/master?filepath=5.Carnets)
 
 > Exemples variés de méthodes en probabilités, arithmétique, géométrie, suites...
+
+Ces carnets (mathématiques) sont issus d'exemples d'une [formation Python pour les enseignants](https://htmlpreview.github.io/?https://github.com/FranckCHAMBON/Python-Lycee/blob/master/Python-Presentation/Python-Presentation.html).

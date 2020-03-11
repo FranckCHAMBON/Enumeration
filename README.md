@@ -2,6 +2,12 @@
 
 Présentation pour la semaine du numérique, le 11 mars 2020, par Franck CHAMBON
 
+> Quelques problèmes de dénombrement, dont l'énoncé est simple, mais dont la résolution peut faire intervenir des méthodes variées en mathématiques et en algorithmique.
+
+* Plusieurs méthodes sont proposées, avec toujours un code en *Python*. Les bonnes pratiques de programmation sont mises en avant, avec, en particulier, une première approche par force brute.
+* Les méthodes avancées nécessitent des connaissances en algèbre linéaire ou en arithmétique, et sont destinées au public d'enseignants de mathématiques.
+
+
 ## [Nombre de triangles dans un triangle](https://htmlpreview.github.io/?https://github.com/FranckCHAMBON/Enumeration/blob/master/1.Compte_figures/Compte.html)
 > Exemple de méthodes avec des polynômes, des coefficients binomiaux, ...
 

@@ -8,7 +8,7 @@ print_background: true
 
 Auteur : Franck CHAMBON
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 import drawSvg as draw
 
 def lines(n, A, B, C):
@@ -55,7 +55,7 @@ On travaille avec une grille rectangulaire à côtés entiers : $n$ par $m$.
 > On compte le nombre de rectangles dessinés, que l'on note $R_{n, m}$.
 
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 import drawSvg as draw
 
 n, m = 6, 10
@@ -96,12 +96,14 @@ On peut aussi utiliser un algorithme par force brute pour vérifier :
 from math import factorial as f
 
 def comb(n, m):
-    "Retourne le coefficient binomial (n, m)"
-    if m > n: return 0
-    return f(n) // f(m) // f(n-m)
+    "Renvoie le coefficient binomial (n, m)"
+    if m > n:
+        return 0
+    else:
+        return f(n) // f(m) // f(n-m)
 
 def R(n, m):
-    """Retourne de nombre de rectangles dessinés dans une grille n×m
+    """Renvoie de nombre de rectangles dessinés dans une grille n×m
     Force brute : complexité n²×m²
     """
     cpt = 0
@@ -121,9 +123,9 @@ print("Succès aux tests")
 
 Nous aurions aussi pu dès le départ établir une formule pour $R_{n, m}$ en affirmant que le nombre de rectangles est :
 *  le nombre de façons de choisir un rectangle ;
-* et le nombre de façons de choisir
-    * deux abscisses parmi $m+1$,
-    * et deux ordonnées parmi $n+1$.
+* et donc le nombre de façons de choisir
+    * deux abscisses distinctes parmi $m+1$,
+    * et deux ordonnées distinctes parmi $n+1$.
 * D'où le $ \binom{n+1}2 \binom{m+1}2$.
 
 ## Problème original : triangles dans triangle
@@ -136,7 +138,7 @@ En utilisant un repère dans un réseau triangulaire, on peut définir l'ensembl
 
 ```py
 def ens_triangle(n):
-    """retourne l'ensemble des points
+    """Renvoie l'ensemble des points
         + à coordonnées entières ;
         + inclus dans le triangle de côté n."""
     points = {}
@@ -147,13 +149,13 @@ def ens_triangle(n):
     return points
 ```
 
-On a ici construit un ensemble (*set*) Python, on aurait pu aussi construite la liste de la même manière ; en effet, il n'y a pas de doublons créés.
+On a ici construit un ensemble (*set*) Python, on aurait pu aussi construire la liste de la même manière ; en effet, il n'y a pas de doublons créés.
 
 #### Avec une liste
 
 ```py
 def lst_triangle(n):
-    """retourne la liste des points distincts
+    """Renvoie la liste des points distincts
         + à coordonnées entières ;
         + inclus dans le triangle de côté n."""
     points = []
@@ -170,11 +172,11 @@ En dehors de la *docstring*, les différences sont :
 
 #### Avec une liste en compréhension
 
-> Cette technique est au programme en spé maths en classe de première. **Cependant**, nous le faisons ici avec une double boucle, ce qui n'est pas explicitement au programme...
+> Cette technique est au programme en spécialité mathématiques en classe de première. **Cependant**, nous le faisons ici avec une double boucle, ce qui n'est pas au programme...
 
 ```py
 def lst_triangle(n):
-    """retourne la liste des points distincts
+    """Renvoie la liste des points distincts
         + à coordonnées entières ;
         + inclus dans le triangle de côté n."""
     return [ (i, j) for i in range(n+1) for j in range(n+1) if i + j <= n]
@@ -182,12 +184,12 @@ def lst_triangle(n):
 
 #### Avec un itérateur (pour aller plus loin)
 
-On peut aussi construire un **itérateur** au lieu d'une liste : c'est un objet qui fabrique les éléments de la liste, l'un après l'autre, sans stocker la liste entière. Les itérateurs sont très utiles lorsqu'on veut pouvoir traiter un élément entièrement puis l'oublier.
+On peut aussi construire un **itérateur** au lieu d'une liste : c'est un objet qui fabrique les éléments de la liste, l'un après l'autre, sans stocker la liste entière. Les itérateurs sont très utiles lorsque l'on veut pouvoir traiter un élément entièrement puis l'oublier.
 > On ne crée pas la liste qui prendrait inutilement de la place en mémoire.
 
 ```py
 def it_triangle(n):
-    """retourne un itérateur des points distincts
+    """Renvoie un itérateur des points distincts
         + à coordonnées entières ;
         + inclus dans le triangle de côté n."""
     for i in range(n+1):
@@ -218,7 +220,7 @@ On constate que ces conditions sont *in fine* les mêmes, ce qui nous conduit au
 
 ```py
 def est_triangle(Ai, Aj, Bi, Bj, Ci, Cj):
-    """retourne un booléen,
+    """Renvoie un booléen,
     + True, si ABC est un triangle sur le réseau ;
     + False, sinon"""
     return (Aj == Bj) and (Ai == Ci) and (Bi - Ai == Cj - Aj != 0)
@@ -253,19 +255,19 @@ Résultat :
 
 On peut parfois calculer par force_brute les premiers résultats d'un problème.
 
-* Cela permet de comparer avec une nouvelle version d'un programme, plus efficace, plus complexe, donc possiblement avec quelques erreurs. C'est une bonne pratique !
+* Cela permet de comparer avec une nouvelle version d'un programme, plus efficace, plus complexe, mais possiblement avec quelques erreurs. C'est une bonne pratique !
 * Cela permet de vérifier s'il existe des résultats similaires sur OEIS ; une encyclopédie qui peut donner de nouvelles pistes de travail. Testons !
 
 ### Informations trouvées sur [OEIS](https://oeis.org)
 
-La [recherche](https://oeis.org/search?q=0%2C+1%2C+5%2C+13%2C+27%2C+48%2C+78%2C+118%2C+170%2C+235&language=english&go=Search) avec les premiers termes donne :
+La [recherche](https://oeis.org/search?q=0,+1,+5,+13,+27,+48,+78,+118,+170,+235&language=french&go=Search) avec les premiers termes donne :
 
 >
->Search: **seq:0,1,5,13,27,48,78,118,170,235**
+>Chercher: **seq:0,1,5,13,27,48,78,118,170,235**
 >Displaying 1-1 of 1 result found. 
 >[A002717](https://oeis.org/A002717) a(n) = floor(n(n+2)(2n+1)/8).
 
-Puis des détails sur la seule suite concordante, d'index d'entrée A002717.
+Puis des détails sur la seule suite concordante, d'indice d'entrée A002717.
 
 ### Une nouvelle formule
 
@@ -286,7 +288,7 @@ Il est très facile de trouver une formule pour $\Delta_n$, un peu plus délicat
     * si $n$ est impair, $\nabla_n = 2\times\left(0+1+2+3+\cdots+\dfrac{n-1}2\right)$ ;
     * si $n$ est pair, $\nabla_n = 2\times\left(0+1+2+3+\cdots+\dfrac{n-2}2\right) + \dfrac{n}2$ ;
 
-On peut certes obtenir deux formules polynomiales (deux proches, suivant la parité de $n$) pour exprimer $a_n$, il faut cependant penser à utiliser une autre base que la base canonique des polynômes ; celle des coefficients binomiaux se prête naturellement bien à la sommation ! On a, après calculs :
+On peut certes obtenir deux formules polynomiales (deux proches, suivant la parité de $n$) pour exprimer $a_n$, il faut cependant penser à utiliser une autre base que la base canonique des polynômes ; celle des coefficients binomiaux se prête naturellement bien à la sommation ! On a, **après calculs** :
 
 > $a_n = \dfrac{12\binom{n+2}3 - 2\binom{n+1}2 - \binom{n}1 - 2\cdot\bold1\!\!1_\text{impair}(n)}{8}$
 
@@ -303,7 +305,7 @@ Une telle formule se prête bien aussi à une méthode d'évaluation proche de c
 from math import factorial as f
 
 def comb(n, k):
-    "Retourne le nombre de combinaisons de k choix parmi n"
+    "Renvoie le nombre de combinaisons de k choix parmi n"
     if 0 <= k <= n:
         return f(n) // f(k) // f(n-k)
     else:
@@ -313,6 +315,7 @@ def formule1(n):
     "Calcul rapide"
     return (12*comb(n+2, 3) - 2*comb(n+1, 2) - comb(n, 1) - (n&1)) // 8
 
+# Tests 1
 for n in range(10):
         assert formule1(n) == force_brute(n), f"Échec avec n = {n}"
 
@@ -332,17 +335,18 @@ def formule2(n):
     
     return ans >> 3
 
+# Tests 2
 for n in range(100):
         assert formule1(n) == formule2(n), f"Échec avec n = {n}"
 ```
 
-La formule2 est très efficace, elle ne fait aucune division.
+La formule 2 est très efficace, elle ne fait aucune division.
 
 ## Problèmes étendus
 
 ### Triangles dans hexagone
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 import drawSvg as draw
 
 def lines(n, A, B, C):
@@ -385,7 +389,7 @@ print(d._repr_svg_())
 
 ### Triangles dans hexagone étoilé
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 import drawSvg as draw
 
 def lines(n, A, B, C):

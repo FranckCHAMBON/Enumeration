@@ -18,7 +18,7 @@ De nombreux problèmes peuvent être résolus en comptant le nombre de chemins d
 Un nombre est dit *élégant* quand l'écart entre deux chiffres consécutifs est d’au plus $1$. Par exemple, $123323454$ est *élégant*, et $12354$ ne l’est pas.
 > **Problème :** Combien y a-t-il de nombres *élégants* à $8$ chiffres, dont les chiffres sont tous compris entre $0$ et $4$ (inclus) ?
 
-On utilise le graphe dont les sommets sont les chiffres de $1$ à $4$, et dont les arêtes sont dessinées ci-dessous :
+On utilise le graphe dont les sommets sont les chiffres de $0$ à $4$, et dont les arêtes sont dessinées ci-dessous :
 
 ```dot
 digraph finite_state_machine {
@@ -65,7 +65,7 @@ $$M^7 =
 \end{pmatrix}
 $$
 
-La somme des coefficients nous donne le nombre total de chemins de longueur $7$. Avec une calculatrice lycée, il suffit d'entrer :
+La somme des coefficients nous donne le nombre total de chemins de longueur $7$. Avec une calculatrice lycée (comme la NumWorks), il suffit d'entrer :
 
 $$
 \begin{pmatrix}
@@ -89,7 +89,7 @@ $$
 \end{pmatrix}
 $$
 
-> Il y a $5275$ nombres élégants à $8$ chiffres (compris entre $1$ et $4$).
+> Il y a $5275$ nombres élégants à $8$ chiffres (compris entre $0$ et $4$).
 
 
 ### Problème avec un grand graphe {ignore = true}
@@ -99,12 +99,12 @@ Pour une matrice de grande taille $n$, il n'est pas raisonnable d'utiliser la mu
 
 Prenons, par exemple, le problème suivant issu de [Project Euler](https://projecteuler.net/problem=215 "problème n°215").
 
-> On souhaite construire un mur avec des briques de taille 2×1 et 3×1 posées horizontalement tel que, pour plus de solidité, les jointures verticales entre briques ne se suivent pas sur deux rangées successives, i.e. ne forment pas de fissure.
+> On souhaite construire un mur avec des briques de taille 2×1 et 3×1 posées horizontalement tel que, pour plus de solidité, les jointures verticales entre briques ne se suivent pas sur deux rangées successives, *i.e.* ne forment pas de fissure.
 
 >> Par exemple, le mur 9×3 suivant n'est pas valide ; en cause, la fissure marquée en jaune :
 
 
-```py {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```py {cmd="python3" hide run_on_save output="html"}
 import drawSvg as draw
 
 l = 50
@@ -142,7 +142,7 @@ Nous allons
 * proposer plusieurs améliorations ;
 * proposer du code en Python.
 
-## Somaire {ignore = true}
+## Sommaire {ignore = true}
 
 [TOC]
 
@@ -200,7 +200,7 @@ Une solution simple consiste à calculer la suite des sommes partielles (pour de
 
 ```py {cmd="python3" run_on_save}
 def gen_rangées(n):
-  "itérateur qui envoie les rangées d'un mur de largeur n"
+  "itérateur qui renvoie les rangées d'un mur de largeur n"
   if n < 0:
     # on ne peut rien construire
     return
@@ -214,26 +214,27 @@ def gen_rangées(n):
     yield rangée + [3]
 
 def sans_fissure(r1, r2):
-  """Retourne un booléen :
+  """Renvoie un booléen :
   les rangées r1 et r2 sont-elles sans fissure ?"""
+
   def accumule(r):
-    "retourne la liste des sommes partielles de la liste r"
-    R = [0]
+    "Renvoie la liste des sommes partielles de la liste r"
+    r_cumul = [0]
     for w in r:
-      R.append(R[-1] + w)
-    return R
+      r_cumul.append(r_cumul[-1] + w)
+    return r_cumul
 
-  R1 = accumule(r1)
-  R2 = accumule(r2)
-  assert R1[-1] == R2[-1], \
+  r_cumul_1 = accumule(r1)
+  r_cumul_2 = accumule(r2)
+  assert r_cumul_1[-1] == r_cumul_2[-1], \
          "les listes r1 et r2 doivent être de même somme"
-  R1.pop() # on enlève cette somme en commun
-  R2.pop()
-  R1.pop(0) # on enlève la première valeur commune : zéro
-  R2.pop(0)
+  r_cumul_1.pop() # on enlève cette somme en commun
+  r_cumul_2.pop()
+  r_cumul_1.pop(0) # on enlève la première valeur commune : zéro
+  r_cumul_2.pop(0)
 
-  for x in R1:
-    if (x in R2):
+  for x in r_cumul_1:
+    if (x in r_cumul_2):
       return False # il y a une fissure !!!
   return True # pas de fissure !
 
@@ -272,11 +273,11 @@ La solution réelle approchée de l'équation $1+x = x^3$ est $\rho\approx 1.324
 ```py {cmd="python3" run_on_save}
 n = 0
 u_n, u_np1, u_np2 = 1, 0, 1
-W = 32
+largeur = 32
 
 for _ in range(1000):
-  if n == W:
-    print(f"Il y a {u_n} sommets dans le graphe pour un mur de largeur {W}.")
+  if n == largeur:
+    print(f"Il y a {u_n} sommets dans le graphe pour un mur de largeur {largeur}.")
   n += 1
   u_n, u_np1, u_np2 = u_np1, u_np2,   u_n + u_np1
 
@@ -309,26 +310,26 @@ def gen_rangées(n):
     yield rangée + [3]
 
 def sans_fissure(r1, r2):
-  """Retourne un booléen :
+  """Renvoie un booléen :
   les rangées r1 et r2 sont-elles sans fissure ?"""
   def accumule(r):
-    "retourne la liste des sommes partielles de la liste r"
-    R = [0]
+    "Renvoie la liste des sommes partielles de la liste r"
+    cumul_r = [0]
     for w in r:
-      R.append(R[-1] + w)
-    return R
+      cumul_r.append(cumul_r[-1] + w)
+    return cumul_r
 
-  R1 = accumule(r1)
-  R2 = accumule(r2)
-  assert R1[-1] == R2[-1], \
+  cumul_r_1 = accumule(r1)
+  cumul_r_2 = accumule(r2)
+  assert cumul_r_1[-1] == cumul_r_2[-1], \
          "les listes r1 et r2 doivent être de même somme"
-  R1.pop() # on enlève cette somme en commun
-  R2.pop()
-  R1.pop(0) # on enlève la première valeur commune : zéro
-  R2.pop(0)
+  cumul_r_1.pop() # on enlève cette somme en commun
+  cumul_r_2.pop()
+  cumul_r_1.pop(0) # on enlève la première valeur commune : zéro
+  cumul_r_2.pop(0)
 
-  for x in R1:
-    if (x in R2):
+  for x in cumul_r_1:
+    if (x in cumul_r_2):
       return False # il y a une fissure !!!
   return True # pas de fissure !
 
@@ -366,9 +367,9 @@ Pour représenter une rangée, on va utiliser un seul entier et sa représentati
 
 > Le grand bord vertical à droite n'est pas représenté avec cette modélisation. On peut tester avec un simple **et logique bit à bit** si deux rangées sont compatibles ou non ; le résultat devra être `100000000` en binaire pour deux rangées compatibles. De plus, le gain de place est conséquent, ce qui accélère les calculs.
 
-```py {cmd="python3" run_on_save}
+```py {cmd="python3"}
 def gen_rangées(n):
-  """itérateur qui envoie les rangées d'un mur de largeur n
+  """itérateur qui renvoie les rangées d'un mur de largeur n
   Modélisation binaire des rangées."""
   if n < 0:
     # on ne peut rien construire
@@ -423,7 +424,7 @@ Remarquons tout de suite qu'il sera plus commode de renuméroter nos sommets du 
 
 ```py {cmd="python3" run_on_save}
 def gen_rangées(n):
-  """itérateur qui envoie les rangées d'un mur de largeur n
+  """itérateur qui renvoie les rangées d'un mur de largeur n
   Modélisation binaire des rangées."""
   if n < 0:
     # on ne peut rien construire
@@ -469,7 +470,7 @@ Si on cherche le nombre de murs de hauteur $h$, il suffit de calculer la somme d
 # Auteur : Franck CHAMBON
 
 def gen_rangées(n):
-    """Retourne un itérateur : les rangées possibles.
+    """Renvoie un itérateur : les rangées possibles.
     Elles sont stockées dans un entier, en binaire
     100101010 → [3, 2, 2, 2], une rangée de longueur 9
     """
@@ -528,8 +529,8 @@ print(f"W({n}, {h}) = {nb_murs_sans_fissure(n, h)}")
 
 Un peu d'introspection nous conduit à voir que :
 * la dernière partie est de la classique programmation dynamique ; elle ne peut pas être franchement améliorée. On pourrait juste voir que le graphe possède :
-  * une symétrie verticale. Chaque mur sans fissure construit possède un symétrique. L'exploitation de cette symétrie est délicate ; il y a 8 façons de découper en deux un mur de hauteur 2, selon où se situe la jointure. On peut gagner un facteur 2 en temps et en espace, mais on ne peut pas utiliser une modélisation plus compacte des rangées, et le code est bien plus complexe... Nous ne présentons pas ici le code. Il permet de calculer $W(60, 60)$, ce qui constitue une première.
-  * une symétrie horizontale. On partage le mur en deux parties de hauteur égale (ou presque). Il suffit alors de compter le nombre de chemins vers une rangée à la moitié, multiplier par le nombre de chemins venant du sommet jusqu'à cette rangée ; et ce pour toute rangée. On obtient facilement un gain en temps d'un facteur proche de 2 pour la deuxième partie. Nous l'aborderons en dernier.
+  * une symétrie verticale. Chaque mur sans fissure construit possède un symétrique. L'exploitation de cette symétrie est délicate ; il y a 8 façons de découper en deux un mur de hauteur 2, selon où se situe la jointure. On peut gagner un facteur 2 en temps et en espace, mais on ne peut pas utiliser une modélisation plus compacte des rangées, et le code est bien plus complexe... Nous ne présentons pas ici le code. Il permet de calculer $W(60, 60)$, **ce qui constitue une première**.
+  * Une symétrie horizontale. On partage le mur en deux parties de hauteur égale (ou presque). Il suffit alors de compter le nombre de chemins vers une rangée à la moitié, multiplier par le nombre de chemins venant du sommet jusqu'à cette rangée ; et ce pour toute rangée. On obtient facilement un gain en temps d'un facteur proche de 2 pour la deuxième partie. Nous l'aborderons en dernier.
 * En première partie, la construction de la matrice de transition peut se faire en parallèle de la construction des sommets ; c'est encore de la programmation dynamique. Là, on peut gagner beaucoup de temps. Voyons comment faire avec :
   * la modélisation des rangées selon $[3, 2, 2, 2]$
   * la modélisation des rangées selon `100101010`
@@ -543,7 +544,7 @@ Il y a plusieurs façons de choisir un motif générique pour construire par ré
 * On se concentre donc sur ce qui reste :
 
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 import drawSvg as draw
 
 l = 50
@@ -613,7 +614,7 @@ Si on note $a_n$ (resp. $b_n$) le nombre de murs de la forme $A_n$ (resp. $B_n$)
 
 ```py
 def AB(n):
-    """ Retourne A et B, des listes de listes de brique 2 ou 3.
+    """ Renvoie A et B, des listes de listes de brique 2 ou 3.
     Ah et Bh correspondent à la partie haute.
     Ab et Bb correspondent à la partie basse.
     Ahnm2, correspond à l'indice n-2
@@ -639,7 +640,7 @@ def AB(n):
     return Ah, Ab, Bh, Bb
 
 def T(n):
-    """Retourne les transitions pour un mur de hauteur 2 qui commence
+    """Renvoie les transitions pour un mur de hauteur 2 qui commence
     à gauche par une brique de 2 sous une brique de 3"""
     Ah, Ab, Bh, Bb = AB(n-5)
     Th = [(0b100<<(n-3))|(ah<<2)|0b10 for ah in Ah]
@@ -711,7 +712,7 @@ def AB(N):
   return Ah, Ab, Bh, Bb
 
 def T(n):
-  """Retourne les transitions pour un mur de hauteur 2 qui commence
+  """Renvoie les transitions pour un mur de hauteur 2 qui commence
   à gauche par une brique de 2 sous une brique de 3"""
   Ah, Ab, Bh, Bb = AB(n-5)
   Th = [(0b100<<(n-3))|(ah<<2)|0b10 for ah in Ah]
@@ -760,7 +761,7 @@ Par exemple, on peut comparer les 3 modélisations sur les rangées d'un mur de 
 |[2, 2, 2, 3] |`101010100`|`0001`    |
 |[3, 3, 3]    |`100100100`|`111`     |
 
-* Cette nouvelle modélisation est certes plus compacte, mais en pratique elle utilisera un mot machine comme la modélisation binaire tant que que la largeur est inférieure à 64. Le gain n'est pas là !
+* Cette nouvelle modélisation est certes plus compacte, mais en pratique elle utilisera un mot machine comme la modélisation binaire tant que la largeur est inférieure à 64. Le gain n'est pas là !
 * La construction dynamique est bien plus facile et rapide ! Il n'y plus besoin de décalages de bits complexes. Ajouter une brique à droite revient à :
   * décaler les bits de la rangée d'un seul rang, et mettre le bit de poids faible à 1 uniquement s'il s'agit d'une brique de largeur 3.
 * Profitons aussi pour utiliser la structure `array` de Python qui est bien plus adaptée à notre modèle : une liste d'entiers mot-machine. (Valable pour $n$ jusqu'au double de la taille d'un mot machine.)
@@ -799,7 +800,7 @@ def AB(n):
     return Ahn, Abn, Bhn, Bbn
 
 def T(n):
-    """Retourne les transitions pour un mur de hauteur 2 qui commence
+    """Renvoie les transitions pour un mur de hauteur 2 qui commence
     à gauche par une brique de 2 sous une brique de 3"""
     Ah, Ab, Bh, Bb = AB(n-5)
     Th = array('I', (ah<<1 for ah in Ah))
@@ -855,7 +856,7 @@ def AB(n):
     return Ahn, Abn, Bhn, Bbn
 
 def gen_transitions(w):
-  """Retourne les transitions pour un mur de hauteur 2 qui commence
+  """Renvoie les transitions pour un mur de hauteur 2 qui commence
   à gauche par une brique de 2 sous une brique de 3.
   Pour w > 6
   """
@@ -943,7 +944,7 @@ print(f"W({n}, {h}) = {nb_murs_sans_fissure(n, h)}")
 
 * Le calcul de $W(50, 50)$ est plus long et prend déjà bien plus de mémoire.
 
-* Le calcul de $W(60, 60)$ est impossible avec ce code sur une machine qui n'a que $8~\text{Go}$ de mémoire vive. Il faut utiliser un code bien plus complexe qui utilise la symétrie verticale de l'ensemble des murs. Nous ne donnons ici que le résultat ; résultat qui n'avait pas été publié précédemment sur le site du project Euler.
+* Le calcul de $W(60, 60)$ est impossible avec ce code sur une machine qui n'a que $8~\text{Go}$ de mémoire vive. Il faut utiliser un code bien plus complexe qui utilise la symétrie verticale de l'ensemble des murs. Nous ne donnons ici que le résultat ; résultat qui n'avait pas été publié précédemment sur le site du project Euler. **Une première !**
 
 ```py
 W(40, 40) =

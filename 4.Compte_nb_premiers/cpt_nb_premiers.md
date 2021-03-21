@@ -39,7 +39,7 @@ Utilisons la définition d'un nombre premier :
 
 ```py {cmd="python3" run_on_save}
 def est_premier(x):
-    "retourne un booléen, True si x est premier, False sinon"
+    "Renvoie un booléen, True si x est premier, False sinon"
     if x < 2:
         return False
     for d in range(2, x):
@@ -48,7 +48,7 @@ def est_premier(x):
     return True
 
 def répartition_premiers(n):
-    "Retourne le nombre de nombres premiers jusqu'à n"
+    "Renvoie le nombre de nombres premiers jusqu'à n"
     return sum(1 for x in range(2, n+1) if est_premier(x))
 
 e = 4
@@ -76,7 +76,7 @@ Il suffit d'ajouter deux lignes au code précédent :
 
 ```py {cmd="python3" run_on_save}
 def est_premier(x):
-    "retourne un booléen, True si x est premier, False sinon"
+    "Renvoie un booléen, True si x est premier, False sinon"
     if x < 2:
         return False
     for d in range(2, x):
@@ -87,7 +87,7 @@ def est_premier(x):
     return True
 
 def répartition_premiers(n):
-    "Retourne le nombre de nombres premiers judqu'à n"
+    "Renvoie le nombre de nombres premiers jusqu'à n"
     return sum(1 for x in range(2, n+1) if est_premier(x))
 
 e = 5
@@ -137,7 +137,7 @@ On en déduit que tous les entiers composés inférieurs à $x$ possèdent un di
 
 Une fois les multiples de $2$ marqués, on marque les multiples de $3$, puis de $5$, puis de $7$. Il est inutile de marquer les multiples de $11$ en vertu de la propriété 2 ; $11^2 = 121 > 120$.
 
-Quand on commence à marquer les multiples de $p$ premier, il suffit de commencer à $p^2$, en effet tous les nombres composés inférieurs à $p^2$  ont déjà été marqués ; ils possèdent un diviseur premier inférieur à $p$, toujours en vertu de la propriété 2.
+Quand on commence à marquer les multiples de $p$ premier, il suffit de commencer à $p^2$, en effet tous les nombres composés inférieurs à $p^2$ ont déjà été marqués ; ils possèdent un diviseur premier inférieur à $p$, toujours en vertu de la propriété 2.
 
 #### Motivation
 > Cette méthode, le crible d'Ératosthène, possède une bonne complexité, et sa simplicité lui permet de nombreuses variations et optimisations. En pratique cette méthode est plus rapide que d'autres cribles, plus délicats à implémenter, ayant pourtant une meilleure complexité théorique.
@@ -157,7 +157,7 @@ Cette méthode est aussi une base de réflexion pour construire d'autres cribles
 #### Une proposition en Python
 ```py {cmd="python3" run_on_save}
 def est_premier(x):
-    "retourne un booléen, True si x est premier, False sinon"
+    "Renvoie un booléen, True si x est premier, False sinon"
     if x < 2:
         return False
     for d in range(2, x):
@@ -169,7 +169,7 @@ def est_premier(x):
 
 def Ératosthène(n):
     """
-    Retourne le crible des nombres premiers inférieurs à n.
+    Renvoie le crible des nombres premiers inférieurs à n.
     crible[x] vaut True ou False, suivant que x est premier ou non.
     """
     if n < 0:
@@ -201,7 +201,7 @@ print([p for p in range(n) if crible[p]])
 print()
 
 def répartition_premiers(n):
-    "Retourne le nombre de nombres premiers jusqu'à n"
+    "Renvoie le nombre de nombres premiers jusqu'à n"
     crible = Ératosthène(n)
     return sum(1 for x in range(2, n+1) if crible[x])
 
@@ -219,7 +219,7 @@ print(f"Il y a {Qn} nombres premiers jusqu'à 10^{e}.")
 Le nombre d'opérations élémentaires pour faire ce crible pour les entiers inférieurs à $n$ est :
 $$\sum_{p=2}^{\sqrt n} \frac {n-p^2} {p\ln p} \sim \int_{2}^{\sqrt n} \frac {n-x^2}{x\ln x} \mathrm{d}x \sim n\ln(\ln n)$$
 
-Explication : avec la probabilité $\ln p$, $p$ est premier, et dans ce cas, on raye des nombres de $p^2$ à $n$, par pas de $p$. Ensuite on obtient un équivalent sous forme d'intégrale, et le [résultat attendu](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes#Algorithmic_complexity).
+**Explication de cette preuve personnelle** : avec la probabilité $\ln p$, $p$ est premier, et dans ce cas, on raye des nombres de $p^2$ à $n$, par pas de $p$. Ensuite on obtient un équivalent sous forme d'intégrale, et le [résultat attendu](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes#Algorithmic_complexity).
 
 La complexité est :
 * quasi-linéaire en temps : $\Theta\left(n \ln(\ln n)\right)$,
@@ -228,12 +228,12 @@ La complexité est :
 #### Complexité pour le compte de nombres premiers
 Faire le compte à la fin est plus rapide que le crible, ainsi on obtient une complexité finale en $\Theta\left(n \ln(\ln n)\right)$ avec cette méthode.
 
-> En pratique, on a pu compter le nombre de nombre premiers jusqu'à $10^7$ avec ce code simple en Python et en quelques secondes. Il est possible de l'améliorer un peu :
-> * En travaillant par tranches pour utiliser moins de mémoire, et donc rester dans la mémoire cache de l'ordinateur ; calculs bien plus rapides. On parle de crible par segments.
+> En pratique, on a pu compter le nombre de nombres premiers jusqu'à $10^7$ avec ce code simple en Python et en quelques secondes. Il est possible de l'améliorer un peu :
+> * En travaillant par tranches pour utiliser moins de mémoire, et donc rester dans la mémoire cache de l'ordinateur ; calculs bien plus rapides. On parle de crible par segments (*segmented sieve*).
 > * En utilisant une autre structure de données que la liste d'entiers Python. Il vaudra mieux utiliser les `bytearray`.
 > * En ne considérant que $2$, puis les nombres impairs, on gagne un facteur $2$ en espace et en temps.
 > * En mettant à part $2$ et $3$, les nombres premiers sont de la forme $6k±1$, où $k\in\mathbb N^*$. Ce qui peut faire gagner encore un peu de temps et d'espace.
-> * On peut continuer un peu ainsi ; avec $2$, $3$ et $5$ à part, les nombres premiers sont congrus à $±1$, $±7$, $±11$, ou $±13$ modulo $30$. Ces considérations s'avèrent contre-productives en Python, où un code avec un style plus fonctionnel sera plus rapide qu'un code élaboré au style impératif. La raison étant que les parties fonctionnelles sont traitées avec des fonctions bien plus rapides.
+> * On peut continuer un peu ainsi ; avec $2$, $3$ et $5$ à part, les nombres premiers sont congrus à $±1$, $±7$, $±11$, ou $±13$ modulo $30$. Ces considérations s'avèrent contre-productives en Python, où un code avec un style plus fonctionnel sera plus rapide qu'un code élaboré au style impératif. La raison étant que les parties fonctionnelles sont traitées avec des fonctions bien plus rapides, écrites en C, optimisées et compilées.
 >
 > On peut alors, avec Python, sans trop de mal, aller jusqu'à $n = 10^9$ en moins d'une minute.
 > Pour une description détaillée d'une implémentation très efficace en `C++`, on se référera à [cet article en anglais](https://github.com/kimwalisch/primesieve/wiki/Segmented-sieve-of-Eratosthenes).
@@ -247,7 +247,7 @@ Peut-on faire nettement mieux ?
 
 Seul le compte total des nombres premiers nous intéresse, pas la liste des nombres premiers, ni même un tableau de booléens. En s'inspirant du crible d'Ératosthène, on va compter le nombre de nombres non rayés, sans en faire la liste !
 
-La méthode initiée par Meissel, simplifiée par Lehmer en 1959, a été ensuite améliorée en 1985 par Lagarias, Millerand et Odlyzko. Un papier de [M.  Deleglise  et  J.  Rivat](https://www.ams.org/journals/mcom/1996-65-213/S0025-5718-96-00674-6/S0025-5718-96-00674-6.pdf) en fait l'écho. Le compte des nombres premiers jusqu'à $10^{18}$ a pu alors être effectué. En 2001, Xavier Gourdon a encore amélioré la méthode pour atteindre $10^{22}$. Actuellement les travaux de [Kim Walish](https://github.com/kimwalisch/primecount) ont permis d'atteindre un record à $10^{27}$.
+La méthode initiée par Meissel, simplifiée par Lehmer en 1959, a été ensuite améliorée en 1985 par Lagarias, Millerand et Odlyzko. Un papier de [M. Deleglise et J. Rivat](https://www.ams.org/journals/mcom/1996-65-213/S0025-5718-96-00674-6/S0025-5718-96-00674-6.pdf) en fait l'écho. Le compte des nombres premiers jusqu'à $10^{18}$ a pu alors être effectué. En 2001, Xavier Gourdon a encore amélioré la méthode pour atteindre $10^{22}$. Actuellement les travaux de [Kim Walish](https://github.com/kimwalisch/primecount) ont permis d'atteindre un record à $10^{27}$.
 
 ### La méthode
 
@@ -292,7 +292,7 @@ On stocke ces valeurs dans un dictionnaire.
 
 ```py {cmd="python3" run_on_save}
 def est_premier(x):
-    "retourne un booléen, True si x est premier, False sinon"
+    "Renvoie un booléen, True si x est premier, False sinon"
     if x < 2:
         return False
     for d in range(2, x):
@@ -301,7 +301,7 @@ def est_premier(x):
     return True
 
 def répartition_premiers(n):
-    "Retourne le nombre de nombres premiers inférieurs à n"
+    "Renvoie le nombre de nombres premiers inférieurs à n"
     if n < 2:
         return 0
     r = int(n**0.5) # partie entière de racine carrée de n
@@ -319,7 +319,7 @@ def répartition_premiers(n):
                 Q[m] -= Q[m//p] - qp
     return Q[n]
 
-#TEST
+# TEST
 for n in range(100):
     assert répartition_premiers(n) == \
         sum(1 for x in range(2, n+1) if est_premier(x)), n

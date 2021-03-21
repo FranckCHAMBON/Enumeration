@@ -1,5 +1,5 @@
 def rec_lin_suc(a, r, n):
-    """Retourne le terme $a_n$ de la suite récurrente linéaire d'ordre $d$ où
+    """Renvoie le terme $a_n$ de la suite récurrente linéaire d'ordre $d$ où
     * $a$ est une liste de longueur $d$ : les valeurs initiales ;
     * $r$ est une liste de longueur $d$ : les coefficients de la récurrence ;
     * $n$ est un entier : le range du terme à calculer.
@@ -19,7 +19,7 @@ def rec_lin_suc(a, r, n):
 
 
 def rec_lin_mat(a, r, n):
-    """Retourne le terme $a_n$ de la suite récurrente linéaire d'ordre $d$ où
+    """Renvoie le terme $a_n$ de la suite récurrente linéaire d'ordre $d$ où
     * $a$ est une liste de longueur $d$ : les valeurs initiales ;
     * $r$ est une liste de longueur $d$ : les coefficients de la récurrence ;
     * $n$ est un entier : le range du terme à calculer.
@@ -31,7 +31,7 @@ def rec_lin_mat(a, r, n):
     assert n >= 0, "n doit être positif"
 
     def matrice_compagnon(r):
-        """Retourne la matrice compagnon associée à la récurrence $r$"""
+        """Renvoie la matrice compagnon associée à la récurrence $r$"""
         d = len(r)
         M = [[0]*d for _ in range(d)]
         for i in range(d-1):
@@ -41,13 +41,13 @@ def rec_lin_mat(a, r, n):
         return M
 
     def puissance(A, n):
-        """Retourne la matrice A à la puissance n, où
+        """Renvoie la matrice A à la puissance n, où
         * A est une matrice carrée (taille d).
         * n entier positif ou nul.
         Exponentiation rapide, complexité Θ(d^3 log(n))"""
 
         def produit(A, B):
-            """Retourne le produit des deux matrices carrées de taille d : A × B.
+            """Renvoie le produit des deux matrices carrées de taille d : A × B.
             Complexité Θ(d^3)"""
             d = len(A)
             M = [[0]*d for i in range(d)]
@@ -71,7 +71,7 @@ def rec_lin_mat(a, r, n):
 
 
 def rec_lin_pol(a, r, n):
-    """Retourne le terme $a_n$ de la suite récurrente linéaire d'ordre $d$ où
+    """Renvoie le terme $a_n$ de la suite récurrente linéaire d'ordre $d$ où
     * $a$ est une liste de longueur $d$ : les valeurs initiales ;
     * $r$ est une liste de longueur $d$ : les coefficients de la récurrence ;
     * $n$ est un entier : le range du terme à calculer.

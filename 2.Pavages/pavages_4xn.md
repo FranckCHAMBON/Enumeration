@@ -8,7 +8,7 @@ print_background: true
 
 Auteur : Franck CHAMBON
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html" id="pa"}
+```python {cmd="python3" hide run_on_save output="html" id="pa"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['White'])
 grid[:, 0] = colors['Blue']
@@ -27,7 +27,7 @@ On ne s'intéresse qu'aux rectangles à côtés entiers.
 > > **Combien y a-t-il de tels pavages ?**
 > On notera $a_n$ le nombre de pavages pour un rectangle $4\times n$.
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['White'])
 grid[:, 0] = colors['Blue']
@@ -40,7 +40,7 @@ print(grid._repr_html_())
 ---
 
 Ce problème est résolu de manière progressive, et c'est l'occasion d'utiliser :
-* des méthodes de dénombrements de pavages ;
+* des méthodes de dénombrement de pavages ;
 * des suites récurrentes linéaires (autres que la très classique suite de Fibonacci) ;
 * des algorithmes de calcul de termes d'une telle suite :
     * par calcul successif ;
@@ -73,7 +73,7 @@ Pour tout $n$ entier, on note :
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['Black'])
 grid[:, 8:10] = (255, 255, 255)
@@ -84,7 +84,7 @@ print(grid._repr_html_())
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['Black'])
 grid[0:2, 8:10] = (255, 255, 255)
@@ -95,7 +95,7 @@ print(grid._repr_html_())
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['Black'])
 grid[0, 8:10] = (255, 255, 255)
@@ -146,7 +146,7 @@ Graphiquement, cela donne :
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
 grid[:, 7] = colors['Blue']
@@ -157,7 +157,7 @@ print(grid._repr_html_())
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
 grid[0, 4:8] = colors['Green']
@@ -171,7 +171,7 @@ print(grid._repr_html_())
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
 grid[0:2, 6:8] = colors['DarkRed']
@@ -183,7 +183,7 @@ print(grid._repr_html_())
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
 grid[0:2, 6:8] = colors['Red']
@@ -196,7 +196,7 @@ print(grid._repr_html_())
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
 grid[0, 4:8] = colors['Green']
@@ -209,7 +209,7 @@ print(grid._repr_html_())
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=8, height=4, block_size=50, fill=colors['Black'])
 grid[0, 4:8] = colors['Green']
@@ -234,7 +234,7 @@ Il y a plusieurs cas de motifs pour la partie droite d'un pavage de rectangle $4
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['Black'])
 grid[0:2, 8:10] = colors['White']
@@ -247,7 +247,7 @@ print(grid._repr_html_())
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['Black'])
 grid[0:2, 8:10] = colors['White']
@@ -272,7 +272,7 @@ Il y a plusieurs cas de motifs pour la partie droite d'un pavage de rectangle $4
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['Black'])
 grid[0, 8:10] = colors['White']
@@ -285,7 +285,7 @@ print(grid._repr_html_())
 
 ---
 
-```python {cmd="/home/francky/anaconda3/bin/python3" hide run_on_save output="html"}
+```python {cmd="python3" hide run_on_save output="html"}
 from ipythonblocks import BlockGrid, colors
 grid = BlockGrid(width=10, height=4, block_size=50, fill=colors['Black'])
 grid[0, 8:10] = colors['White']
@@ -326,7 +326,7 @@ for n in range(4, 24):
 
 ```python {cmd="python3" run_on_save hide continue="valeurs" output="markdown"}
 def markdown(a, ni, nf):
-    """Retourne un joli tableau markdown des valeurs de
+    """Renvoie un joli tableau markdown des valeurs de
     la suite a_n pour n dans [ni, nf["""
     ans = "|$n$|"
     for n in range(ni, nf): ans += f"${n}$|"
@@ -348,12 +348,13 @@ Sur [*On-Line Encyclopedia of Integer Sequences*](oeis.org), cette suite est ré
 
 On peut vérifier cette relation sur nos valeurs :
 
-```python
+```python {cmd="python3" run_on_save continue="valeurs"}
 for n in range(8, 24):
     assert  -a[n-8] +a[n-6] -a[n-5] +5*a[n-4] +a[n-2] +a[n-1] == a[n], f"Échec avec n = {n}"
+print("Réussite au tests")
 ```
 
-**Remarque :** Pour une suite qui ne serait pas référencée, [l' algorithme de Berlekamp–Massey (*en*)](https://en.wikipedia.org/wiki/Berlekamp%E2%80%93Massey_algorithm) permet de déterminer une relation de récurrence en fonction des premiers termes.
+**Remarque :** Pour une suite qui ne serait pas référencée, [l'algorithme de Berlekamp–Massey (*en*)](https://en.wikipedia.org/wiki/Berlekamp%E2%80%93Massey_algorithm) permet de déterminer une relation de récurrence en fonction des premiers termes.
 
 
 #### Preuve de cette relation de récurrence
@@ -400,13 +401,13 @@ print(f"Preuve de calcul : {a[-1] % m}")
 ```
 
 * C'est la bonne méthode à employer si on a besoin de (*presque*) tous les premiers termes d'une suite récurrente linéaire.
-* La dernière instruction affiche le dernier terme calculé, qui est très très grand, modulo un grand nombre premier sur 32bits. Cette *preuve* de calcul a plusieurs utilités :
+* La dernière instruction affiche le dernier terme calculé, qui est réellement très grand, modulo un grand nombre premier sur 32bits. Cette *preuve* de calcul a plusieurs utilités :
     * elle initie au calcul modulaire omniprésent en cryptographie,
     * elle permet de vérifier plus aisément des calculs sur de grands nombres par différentes méthodes,
     * ou par différents langages qui ne travaillent pas avec des nombres plus grands que les mots machine.
 
 > Sans stocker toutes les valeurs, juste les huit précédentes, peut-on calculer beaucoup plus de termes ?
-> * Il suffit de supprimer, avec `del a[0]`, le terme qui devient inutile à chaque tour de boucle. Cette opération est peu coûteuse en Python ; on ne déplace pas les autres éléments de la liste, ce n'est pas un tableau !!!
+> * Il suffit de supprimer, avec `del a[0]`, le terme qui devient inutile à chaque tour de boucle. Cette opération permet de conserver une empreinte mémoire faible, donc d'utiliser de la mémoire cache qui est plus rapide que la RAM !!!
 
 ```python {cmd="python3"}
 from time import time
@@ -431,7 +432,7 @@ print(f"Preuve de calcul : {a[-1] % m}")
 
 C'est à peine plus rapide, mais l'empreinte mémoire est bien plus faible.
 
-Dans un fichier `outils.py`, créons une fonction `rec_lin_suc` qui retourne un terme d'une suite récurrente linéaire par calcul des termes successifs.
+Dans un fichier `outils.py`, créons une fonction `rec_lin_suc` qui renvoie un terme d'une suite récurrente linéaire par calcul des termes successifs.
 
 @import "outils.py" {line_begin=0 line_end=18}
 
@@ -499,7 +500,7 @@ De sorte que l'on peut calculer plus rapidement $a_n$ avec l'exponentiation rapi
 > Si la récurrence est d'ordre $d$, 
 > * le temps de calcul est en $\Theta(d^3 \log n)$ opérations élémentaires (pas secondes) ;
 > * l'empreinte mémoire est en $\Theta(d^2)$ coefficients (pas bits) ;
-> * **Attention**, les coefficients peuvent être de grands nombres, et donc le temps de calcul en secondes peut ne pas être en $\Theta(d^3 \log n)$...
+> * **Attention**, les coefficients peuvent être de grands nombres, et donc le temps de calcul peut ne pas être en $\Theta(d^3 \log n)$...
 
 > Comparons avec notre exemple, et un code non optimisé inclus dans notre petit module `outils.py`.
 
@@ -563,15 +564,15 @@ print(f"Preuve de calcul : {a_n % m}")
 > **Conclusion :** L'exponentiation rapide de polynômes modulo la relation de récurrence permet d'avoir une bien meilleure complexité temporelle.
 >
 > Si la récurrence est d'ordre $d$ :
-> * le temps de calcul est en $\Theta(d^2 \log n)$ opérations élémentaires (pas secondes) ;
+> * le temps de calcul est en $\Theta(d^2 \log n)$ opérations élémentaires (pas en secondes) ;
 > * l'empreinte mémoire est en $\Theta(d^2)$ coefficients (pas bits) ;
-> * **Attention**, les coefficients peuvent être de grands nombres, et donc le temps de calcul en secondes peut ne pas être en $\Theta(d^2 \log n)$...
+> * **Attention**, les coefficients peuvent être de grands nombres, et donc le temps de calcul (en secondes donc) peut ne pas être en $\Theta(d^2 \log n)$...
 >
 > **Peut-on faire mieux ?**
-> * Oui, avec la [transformation de Fourier rapide](https://fr.wikipedia.org/wiki/Transformation_de_Fourier_rapide) (FFT) qui permet de faire la multiplication de deux polynômes de taille $d$ en $\Theta(d\log d)$ au lieu de $\Theta(d^2)$. Cela dépasse largement le niveau de papier.
+> * Oui, avec la [transformation de Fourier rapide](https://fr.wikipedia.org/wiki/Transformation_de_Fourier_rapide) (FFT) qui permet de faire la multiplication de deux polynômes de taille $d$ en $\Theta(d\log d)$ au lieu de $\Theta(d^2)$. Cela dépasse largement le niveau de ce papier.
 > * Oui, si l'on fait du calcul modulaire en lieu et place du calcul sur les grands entiers. Il y a plusieurs justifications :
->   * Posséder plusieurs résidus permet de reconstruire un grand nombre avec le théorème des restes chinois.
->   * Le calcul de chaque résidu est parallélisable.
+>   * Posséder plusieurs résidus permet de reconstruire le grand nombre avec le théorème des restes chinois.
+>   * Le calcul des résidus est parallélisable ; un par machine.
 >   * Le calcul modulaire est pédagogique, et omniprésent en cryptographie.
 >   * Le calcul modulaire est possible facilement avec la plupart des langages tant que le modulo tient sur un mot machine. Par contre le calcul sur les grands entiers est plus délicat, en C par exemple.
 >   * Le calcul modulaire peut faire office de preuve de calcul dans la recherche de nouveaux algorithmes ou les exercices d'algorithmiques.
@@ -579,15 +580,15 @@ print(f"Preuve de calcul : {a_n % m}")
 ## Quelques problèmes similaires
 Voici une liste d'exercices, souvent difficiles à résoudre avec Python3, autour des suites récurrentes linéaires.
 
-Plusieurs problèmes de pavages en suivant ce lien : [M5TILE](https://www.spoj.com/problems/M5TILE/).
+Plusieurs problèmes de pavages sont indiqués en suivant ce lien : [M5TILE](https://www.spoj.com/problems/M5TILE/).
 * Il y en a des plus faciles, comme [M3TILE](https://www.spoj.com/problems/M3TILE/) et [M4TILE](https://www.spoj.com/problems/GNY07H/).
 * Il y en a des plus durs, comme [MNTILE](https://www.spoj.com/problems/MNTILE/), [DOJ1](https://www.spoj.com/problems/DOJ1/) et [DOJ2](https://www.spoj.com/problems/DOJ2/).
 
 Des problèmes variés, de pavage ou non :
 
-> * L'énoncé est en anglais.
+> L'énoncé est en anglais. Dans le tableau suivant, édité en mars 2020,
 > * *Solvers* indique une forme de difficulté ; le nombre de participants qui ont résolu le problème. Attention, beaucoup de participants utilisent le langage C.
-> * Le temps indique un temps personnel en Python3 avec un code optimisé. C'est souvent le temps à battre.
+> * Le temps indique un temps personnel (le mien, en Python3) avec un code optimisé. C'est souvent le temps à battre.
 > * Un titre en gras indique un problème particulièrement difficile en Python3 ; une première résolution en C étant conseillée. Py3Solvers indique le nombre de personnes ayant réussi avec Python3.
 > * Un symbole :fa-home: indique un problème créé par votre serviteur.
 
@@ -623,7 +624,7 @@ Des problèmes difficiles sur les suites, en général.
 |[Pibonacci](https://www.spoj.com/problems/PIB/)|41|0.54s|[5](https://www.spoj.com/ranks/PIB/lang=PYTH%203.2.3)
 |[Hofstadter–Conway 10000 dollar sequence](https://www.spoj.com/problems/HC10000/)|5|0.48s|[1](https://www.spoj.com/ranks/HC10000/lang=PYTH%203.2.3)
 
-D'autres [problèmes](https://www.spoj.com/problems/FRANCKY/) essentiellement d'arithmétique.
+Et voici d'autres [problèmes](https://www.spoj.com/problems/FRANCKY/) essentiellement d'arithmétique. Des problèmes qui m'ont personnellement fait grandement progresser à la fois en mathématiques, et en informatique.
 
 ## ANNEXE : fichier `outils.py`
 

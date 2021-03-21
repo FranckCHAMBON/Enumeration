@@ -1,5 +1,6 @@
 # Algorithmes de dénombrements
 
+
 Présentation pour la semaine du numérique, le 11 mars 2020, par Franck CHAMBON
 
 > Quelques problèmes de dénombrement, dont l'énoncé est simple, mais dont la résolution peut faire intervenir des méthodes variées en mathématiques et en algorithmique.
